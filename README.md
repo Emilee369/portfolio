@@ -1,11 +1,9 @@
 # Emily Wu — Product design portfolio
 
-Live site: https://emilee369.github.io/portfolio/
+Live site: https://www.emilywu.website/
 
-The HTML, CSS, and JavaScript files are the editable website source. Images, audio, videos, and research-board tiles are preserved in `assets-part-*.zip` bundles so the full portfolio can be uploaded through GitHub's browser interface.
+The editable HTML, CSS, and JavaScript pages are in the repository root. The original images, music, video, and research tiles are stored in `assets-part-*.zip` bundles. `build-site.sh` unpacks them into `_site`, together with page files and the resume PDF.
 
-## Publishing updates
+Vercel uses `vercel.json` to build and publish `_site`. Committing updates to `main` redeploys automatically. GitHub Pages uses the same build through `.github/workflows/publish.yml`.
 
-Edit the page files and commit to `main`. The **Publish portfolio** GitHub Actions workflow assembles the files and assets, then publishes the site automatically. In Settings → Pages, keep the publishing source set to **GitHub Actions**.
-
-To replace an asset, update its matching `assets/…` entry inside the asset bundle. Preserve its path. For local preview, extract every bundle into this directory, then serve it with a local static server.
+All shared page links use Emily’s logo as their social preview. Resume navigation opens the supplied PDF in a new tab.
