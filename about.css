@@ -1,0 +1,221 @@
+/* Emily's personal canvas. Objects stay lightweight and page navigation stays ordinary. */
+.about-story{--story-blue:#2468cc;--story-surface:#f0efec;--story-text:#5b5e56;width:min(1280px,calc(100% - 96px));margin-inline:auto;position:relative;flex:none;height:880px;min-height:0}
+.story-label{display:block;font-size:12px;line-height:1.6;color:var(--story-blue)}
+.story-introduction{position:absolute;top:295px;left:50%;transform:translateX(-50%);width:410px;text-align:center}.story-introduction h1{font-family:"Snell Roundhand","Segoe Script",cursive;font-size:68px;font-weight:500;line-height:1.2;letter-spacing:-.03em;margin:8px 0 22px}.story-introduction>p{font-size:14px;line-height:1.8;color:var(--story-text);margin:0}.story-introduction .about-role{font-size:14px;color:var(--ink);margin-bottom:14px}.story-interests{display:flex;justify-content:center;flex-wrap:wrap;gap:0;list-style:none;padding:0;margin:24px 0 0;color:var(--story-text);font-size:11px;line-height:1.6}.story-interests li+li::before{content:"/";margin-inline:14px;color:var(--line)}
+[data-about-object]{position:absolute;transform:translate(var(--object-x,0px),var(--object-y,0px)) rotate(var(--object-angle,0deg));transition:transform .35s ease;cursor:grab;touch-action:none;z-index:1}.object-moving{z-index:8;cursor:grabbing;transition:none}.object-grip{position:absolute;right:-14px;top:-15px;width:28px;height:28px;padding:6px;border-radius:50%;background:var(--paper);border:1px solid var(--line);opacity:0;transition:opacity .15s;color:var(--story-text);cursor:grab;z-index:6}.object-grip svg{width:100%;height:100%}[data-about-object]:is(:hover,:focus-within) .object-grip{opacity:1}.object-grip:active{cursor:grabbing}.about-story :is(a,button,input):focus-visible{outline:2px solid var(--story-blue);outline-offset:5px}.about-story [hidden]{display:none!important}
+.story-background{left:4%;top:285px;width:244px;scroll-margin-top:110px}.window-heading{text-align:center;margin-bottom:18px}.window-heading h2{font-size:12px;font-weight:400;margin:4px 0 0;color:var(--story-text)}
+.story-outside{right:3%;top:65px;width:250px}.hobby-card{padding:0;margin:0;width:100%;display:flex;flex-direction:column}.record-scene{order:1;width:100%}.music-copy{order:2;text-align:center;margin-top:5px;width:100%}.music-copy h3{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.track-title{font-size:11px;line-height:1.6;color:var(--ink);margin:14px 0 0}.music-controls{display:flex;align-items:center;justify-content:center;gap:15px;margin-top:10px}.music-controls>label{font-size:11px;color:var(--story-text);display:grid;gap:6px;min-width:0}.music-controls>label:has(input:disabled){display:none}.music-controls input{width:85px;accent-color:#9fbbae}.media-note{font-size:10px;color:var(--story-text);line-height:1.6;margin:12px 0 0}.music-embed{order:3;margin-top:15px;border-radius:12px;overflow:hidden;width:100%}.music-embed iframe{border:0;width:100%;display:block}.song-link{font-size:10px;text-decoration:underline;text-underline-offset:3px;margin-top:10px;display:inline-block;color:var(--story-text)}
+.story-control{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:8px 13px;font-size:11px;line-height:1.35;background:var(--paper);transition:background .2s;min-height:36px}.story-control:not(:disabled):hover{background:var(--story-surface)}.story-control:disabled{cursor:default;opacity:.55}
+.record-player{aspect-ratio:320/300;filter:drop-shadow(0 8px 10px #24201d14);border-radius:40px;transition:filter .2s}.record-player>svg{width:100%;height:100%;display:block}.record-player.drop-ready{filter:drop-shadow(0 0 6px #a2c0b8)}.player-disc{transform-origin:160px 145px}.record-player.is-playing .player-disc{animation:record-spin 6000ms linear infinite}.record-changing .player-disc>svg{animation:disc-arrive 380ms ease-out}
+@keyframes record-spin{to{transform:rotate(360deg)}}@keyframes disc-arrive{from{opacity:.4;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.arrangement-controls{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;color:var(--line)}.arrangement-action{font-size:11px;color:var(--story-text);padding:9px 3px;background:none}.arrangement-action:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+html[data-theme=night] .about-story{--story-blue:#8bc4ff;--story-surface:#303039;--story-text:#b8b2b8}
+/* A small keepsake window: the shade changes the destination, never the theme. */
+.story-background{display:grid;grid-template-columns:1.2fr 1fr;gap:8%;align-items:center}.flight-card{margin:0;display:flex;flex-direction:column;align-items:center;justify-self:center;width:100%;max-width:320px}.airplane-window{width:244px;height:334px;padding:19px;border-radius:42% / 29%;background:linear-gradient(115deg,#c7c5bf 0%,#f4f3ef 19%,#e1dfd9 40%,#f8f7f3 66%,#c5c3bd 100%);box-shadow:0 12px 24px #302d2314,inset 0 2px 3px #fff,inset 0 -3px 6px #aaa79e;border:1px solid #cecbc3;position:relative}.airplane-window::before{content:"";position:absolute;inset:7px;border:1px solid #fff9;border-radius:inherit;box-shadow:inset 1px 1px 3px #a6a29888;pointer-events:none}.window-glass{width:100%;height:100%;border-radius:40% / 28%;overflow:hidden;position:relative;border:6px solid #eeeae2;box-shadow:0 0 0 2px #b6b2aa,inset 0 4px 8px #423b3344;background:#9ec0dc;isolation:isolate}.window-glass::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 4px 10px #1e25304d,inset 0 0 2px 2px #ffffff3b;pointer-events:none;z-index:3}.window-views,.window-views img,.window-views video{width:100%;height:100%;position:absolute;inset:0}.window-views :is(img,video){object-fit:cover;object-position:50% 50%}.window-views img[data-window-view="1"]{transform:scale(1.45);transform-origin:48% 32%;object-position:48% 50%}.window-views img[data-window-view="2"]{object-position:34% 50%}.window-toggle{position:absolute;inset:0;border:0;background:transparent;padding:0;width:100%;height:100%;cursor:ns-resize;touch-action:pan-y;z-index:2}.window-shade{position:absolute;inset:0;background:linear-gradient(105deg,#d8d5ce,#f3f0e9 32%,#e4e0d7 80%,#d2cec4);border-radius:0 0 32% 32% / 0 0 14% 14%;box-shadow:0 5px 8px #28241940,inset 0 -2px 2px #fff;transform:translateY(calc(-100% + 28px));transition:transform 520ms cubic-bezier(.22,.8,.23,1)}.shade-handle{position:absolute;width:44px;height:7px;left:calc(50% - 22px);bottom:10px;border-radius:8px;background:linear-gradient(#b4afa5,#f5f2ea);box-shadow:inset 0 1px 2px #8b857a77}.window-toggle.is-closed .window-shade{transform:translateY(0)}.window-toggle.is-dragging{touch-action:none}.window-toggle.is-dragging .window-shade{transition:none}.window-toggle:focus-visible{outline-offset:-9px!important;border-radius:inherit}.flight-card figcaption{display:grid;text-align:center;gap:8px;margin-top:24px}.window-location{font-size:13px;color:var(--ink)}#window-hint{font-size:11px;line-height:1.6;color:var(--story-text)}
+
+.window-toggle{touch-action:none}.flight-card{max-width:244px}.window-location{font-size:11px}#window-hint{font-size:10px}
+@media(max-width:1150px) and (min-width:1021px){.story-introduction{width:350px}.story-introduction h1{font-size:62px}.story-outside{right:1%;width:224px}.story-background{left:1%;width:226px}.airplane-window{width:226px;height:312px;padding:18px}.about-story .about-art{left:6%}}
+@media(max-width:1020px){.about-story{height:auto;min-height:0;width:calc(100% - 48px);display:flex;flex-direction:column;align-items:center;gap:44px;padding:52px 0 64px}.story-introduction{position:static;transform:none;width:min(450px,100%)}.story-introduction h1{font-size:62px}.about-story [data-about-object],.about-story .about-art{position:relative;inset:auto!important;transform:none!important;touch-action:pan-y;cursor:default}.about-story .about-art{width:185px;transform:rotate(-5deg)!important}.story-background{width:244px}.story-outside{width:270px}.object-grip{display:none}.arrangement-controls{display:flex;position:static;transform:none;padding-top:6px}}
+@media(max-width:600px){.about-story{width:calc(100% - 40px);gap:40px}.story-introduction h1{font-size:58px}.story-introduction>p{font-size:13px}.story-introduction .about-role{font-size:13px}.story-background{width:226px}.airplane-window{width:226px;height:312px;padding:18px}}
+@media(prefers-reduced-motion:reduce){.about-story *, .about-story *::before, .about-story *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.about-canvas .story-background{display:block}
+
+.arrangement-controls{gap:9px}.arrangement-mode{display:grid;place-items:center;width:42px;height:42px;padding:8px;border:1px solid var(--line);border-radius:11px;background:transparent;color:var(--story-text);transition:background .2s,color .2s}.arrangement-mode svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}.arrangement-mode:hover{background:var(--story-surface);color:var(--ink)}.arrangement-mode[aria-pressed=true]{background:var(--story-surface);color:var(--ink)}
+
+@media(max-width:1020px){.about-story[data-arrangement=messy] [data-about-object]{transform:rotate(var(--object-angle,0deg))!important}}
+
+/* Emily’s own small keepsakes, with transparent cutouts and no repeated Gallery caption. */
+.personal-tokens{display:contents}.personal-photo,.personal-calligraphy,.personal-matcha{margin:0;padding:0}.personal-photo{width:230px;left:8%;top:65px}.personal-photo img{border-radius:3px;box-shadow:0 8px 22px #00000010}.personal-calligraphy{width:75px;top:92px}.first-character{left:41%}.second-character{left:50%;top:115px}.personal-matcha{width:142px;left:58%;top:610px;filter:drop-shadow(0 7px 8px #00000014)}.about-story :is(.personal-photo,.personal-calligraphy,.personal-matcha)>img{display:block;width:100%;height:auto;pointer-events:none;user-select:none}.about-canvas .story-background{top:360px}.personal-calligraphy img{height:102px!important;object-fit:contain}html[data-theme=night] .personal-calligraphy img{filter:invert(1)}
+@media(max-width:1150px) and (min-width:1021px){.personal-photo{left:4%;width:200px}.personal-matcha{left:56%;width:130px}}
+@media(max-width:1020px){.about-story{height:auto}.personal-photo{width:230px;order:2}.personal-tokens{display:flex;justify-content:center;gap:24px;order:3}.personal-calligraphy{width:65px}.personal-matcha{width:125px;order:4}.story-introduction{order:1}.story-background{order:5}.story-outside{order:6}.arrangement-controls{order:7}}
+
+/* Tidy: an ordered collection with a right-aligned personal introduction. */
+.about-canvas[data-arrangement=tidy] .story-introduction{left:auto;right:3%;top:505px;transform:none;width:480px;text-align:right}
+.about-canvas[data-arrangement=tidy] .story-interests{justify-content:flex-end}
+.about-canvas[data-arrangement=tidy] .personal-photo{left:3%;top:70px}
+.about-canvas[data-arrangement=tidy] .first-character{left:26%;top:70px}
+.about-canvas[data-arrangement=tidy] .second-character{left:34%;top:100px}
+.about-canvas[data-arrangement=tidy] .personal-matcha{left:29%;top:525px;width:155px}
+.about-canvas[data-arrangement=tidy] .story-background{left:3%;top:360px}
+.about-canvas[data-arrangement=tidy] .story-outside{left:47%;right:auto;top:45px;width:300px}
+.about-canvas[data-arrangement=messy] .story-introduction{top:300px;left:50%;right:auto;transform:translateX(-50%);width:410px;text-align:center}
+.story-introduction{z-index:7;transition:top .4s,left .4s,right .4s}
+.record-player{width:230px;margin-inline:auto}.music-copy{margin-top:2px}.track-title{margin:7px 0 0;font-size:11px}.music-controls{gap:9px;flex-wrap:wrap}.music-action{display:inline-flex;gap:6px;align-items:center;border:0;padding:7px 5px;background:transparent;color:var(--ink);font-size:10px;min-height:34px;border-radius:7px}.music-action:hover{background:var(--story-surface)}.music-action svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.music-action .play-symbol{fill:currentColor;stroke:none}.music-action .pause-symbol{display:none}.music-action[aria-pressed=true] .play-symbol{display:none}.music-action[aria-pressed=true] .pause-symbol{display:block}.music-divider{height:13px;width:1px;background:var(--line)}.music-controls>.music-volume{display:flex;align-items:center;gap:6px}.music-volume svg{width:13px;height:13px;fill:none;stroke:var(--story-text);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}.music-volume input{width:45px;height:3px;accent-color:var(--story-text)}
+@media(max-width:1150px) and (min-width:1021px){.about-canvas[data-arrangement=tidy] .story-introduction{width:410px;right:2%;top:510px}.about-canvas[data-arrangement=tidy] .personal-photo{width:185px}.about-canvas[data-arrangement=tidy] .story-outside{left:46%;width:270px}.about-canvas[data-arrangement=messy] .story-introduction{width:350px;left:50%;top:300px}.about-canvas[data-arrangement=tidy] .personal-matcha{left:29%;width:130px}}
+@media(max-width:1020px){.about-canvas:is([data-arrangement=tidy],[data-arrangement=messy]) .story-introduction{position:static;width:min(450px,100%);transform:none;text-align:center}.about-canvas[data-arrangement=tidy] .story-interests{justify-content:center}.about-canvas[data-arrangement=tidy] .story-outside{width:300px}.about-canvas[data-arrangement=messy] .personal-tokens{gap:0}.about-canvas[data-arrangement=messy] .personal-calligraphy+.personal-calligraphy{margin-left:-18px}.about-canvas[data-arrangement=messy] .personal-matcha{margin-top:-65px;z-index:2}.about-canvas[data-arrangement=messy] .personal-photo{transform:rotate(-12deg)!important}}
+
+.about-story .story-outside{touch-action:auto}
+
+/* Laptop and dinner keepsakes retain their original photographic cutouts. */
+.personal-laptop,.personal-hotpot{margin:0;padding:0;filter:drop-shadow(0 8px 10px #00000012)}.personal-laptop{width:265px;left:76%;top:65px}.personal-hotpot{width:155px;left:43%;top:585px}.personal-laptop img,.personal-hotpot img{display:block;width:100%;height:auto;pointer-events:none;user-select:none}
+@media(max-width:1150px) and (min-width:1021px){.personal-laptop{width:215px;left:76%}.personal-hotpot{width:130px;left:43%;top:600px}}
+@media(max-width:1020px){.personal-laptop{order:4;width:250px}.personal-hotpot{order:4;width:145px}.about-canvas[data-arrangement=messy] .personal-hotpot{margin-top:-60px;z-index:4}.about-canvas[data-arrangement=messy] .personal-laptop{margin-left:35px;z-index:3}}
+
+/* Keep the complete desktop keepsake canvas inside the space below the header. */
+.about-roots{display:block;margin-bottom:12px}
+@media(min-width:1021px){
+  .about-canvas{height:calc(100svh - var(--header-height,74px));min-height:0}
+  .about-canvas .story-introduction h1{font-size:clamp(44px,7.5svh,64px);margin:0 0 15px}
+  .about-canvas .story-introduction>p{font-size:clamp(12px,1.75svh,14px);line-height:1.7}
+  .about-canvas .story-introduction .about-role{font-size:clamp(12px,1.75svh,14px);margin-bottom:14px}
+  .about-canvas[data-arrangement=tidy] .story-introduction{top:45%;right:3%;width:min(460px,38%)}
+  .about-canvas[data-arrangement=messy] .story-introduction{top:34%;left:50%;right:auto;width:min(410px,36%)}
+  .about-canvas .personal-photo{width:clamp(170px,27svh,215px)}
+  .about-canvas[data-arrangement=tidy] .personal-photo{top:8%;left:3%}
+  .about-canvas[data-arrangement=tidy] .first-character{top:8%;left:25%}
+  .about-canvas[data-arrangement=tidy] .second-character{top:12%;left:33%}
+  .about-canvas .personal-calligraphy{width:clamp(55px,8.5svh,70px)}
+  .about-canvas .personal-calligraphy img{height:clamp(76px,12svh,96px)!important}
+  .about-canvas .story-background{width:clamp(170px,26svh,210px)}
+  .about-canvas .airplane-window{width:100%;height:clamp(232px,35.5svh,287px);padding:16px}
+  .about-canvas .flight-card figcaption{margin-top:14px;gap:6px}
+  .about-canvas[data-arrangement=tidy] .story-background{top:38%;left:3%}
+  .about-canvas .story-outside{width:clamp(245px,34svh,280px)}
+  .about-canvas .record-player{width:clamp(170px,27svh,215px)}
+  .about-canvas[data-arrangement=tidy] .story-outside{left:45%;top:4%}
+  .about-canvas .personal-laptop{width:clamp(190px,31svh,245px)}
+  .about-canvas[data-arrangement=tidy] .personal-laptop{left:77%;top:8%}
+  .about-canvas .personal-matcha{width:clamp(100px,16svh,130px)}
+  .about-canvas[data-arrangement=tidy] .personal-matcha{left:29%;top:64%}
+  .about-canvas .personal-hotpot{width:clamp(105px,17svh,140px)}
+  .about-canvas[data-arrangement=tidy] .personal-hotpot{left:45%;top:65%}
+  .about-canvas .arrangement-controls{bottom:18px}
+}
+
+/* A small blue folder, with app icons that spring out like desktop keepsakes. */
+.software-folder{width:132px;left:29%;top:35%;z-index:4;margin:0}.folder-trigger{width:100%;padding:0;display:block;position:relative;border-radius:12px;cursor:pointer}.folder-art{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 3px #12557930)}.folder-face{transform-origin:110px 165px;transition:transform .3s ease}.folder-caption{display:block;font-size:10px;line-height:1.5;color:var(--ink);margin-top:4px}.folder-apps{position:absolute;left:50%;top:0;width:100%;height:100%;list-style:none;padding:0;margin:0;pointer-events:none}.folder-app{position:absolute;left:-23px;top:20px;display:grid;justify-items:center;gap:5px;opacity:0;visibility:hidden;transform:translate(0,18px) scale(.55);transform-origin:center bottom;transition:transform .42s cubic-bezier(.16,1.35,.35,1),opacity .18s,visibility .18s}.folder-app .app-icon{display:block;width:45px;height:45px;border-radius:12px;box-shadow:0 4px 9px #15232b24}.folder-app svg{display:block;width:100%;height:100%}.folder-app>span:last-child{font-size:9px;color:var(--ink);line-height:1.3;white-space:nowrap}.software-folder[data-open=true] .folder-face{transform:skewX(-5deg) scaleY(.96)}.software-folder[data-open=true] .folder-app{opacity:1;visibility:visible}.software-folder[data-open=true] .app-procreate{transform:translate(-57px,-54px) rotate(-15deg) scale(1)}.software-folder[data-open=true] .app-figma{transform:translate(0,-78px) rotate(7deg) scale(1);transition-delay:35ms}.software-folder[data-open=true] .app-adobe{transform:translate(57px,-54px) rotate(14deg) scale(1);transition-delay:70ms}
+@media(min-width:1021px){.about-canvas[data-arrangement=tidy] .personal-matcha{width:clamp(100px,16svh,130px)}.about-canvas[data-arrangement=tidy] .story-outside{width:clamp(245px,34svh,280px)}.software-folder{width:clamp(108px,17svh,138px)}}
+/* The small-screen canvas also fits above the footer, rather than stacking into a long page. */
+@media(max-width:1020px){
+  .about-canvas{height:calc(100svh - var(--header-height,74px));width:calc(100% - 32px);padding:0;display:block;min-height:0}
+  .about-canvas [data-about-object]{position:absolute;inset:auto!important;margin:0!important}
+  .about-canvas .personal-tokens{display:contents}
+  .about-canvas:is([data-arrangement=tidy],[data-arrangement=messy]) .story-introduction{position:absolute;left:50%;right:auto;top:29%;width:min(450px,65%);transform:translateX(-50%);text-align:center}
+  .about-canvas .story-introduction h1{font-size:clamp(40px,6svh,56px);margin:0 0 12px}
+  .about-canvas .story-introduction>p,.about-canvas .story-introduction .about-role{font-size:13px;line-height:1.65}
+  .about-canvas .story-introduction .about-role{margin-bottom:12px}.about-roots{margin-bottom:10px}
+  .about-canvas .personal-photo{width:clamp(105px,19vw,180px);left:4%!important;top:4%!important}
+  .about-canvas .personal-calligraphy{width:clamp(37px,7vw,60px)}.about-canvas .personal-calligraphy img{height:70px!important}
+  .about-canvas .first-character{left:32%!important;top:5%!important}.about-canvas .second-character{left:42%!important;top:7%!important}
+  .about-canvas .story-outside{width:195px!important;right:2%!important;top:3%!important;left:auto!important}
+  .about-canvas .record-player{width:145px}.about-canvas .track-title{font-size:9px}.about-canvas .music-controls{gap:5px}.about-canvas .music-action{font-size:9px;gap:4px;padding:6px 3px}
+  .about-canvas .software-folder{width:110px;left:14%!important;top:20%!important}
+  .about-canvas .story-background{width:clamp(120px,19vw,180px);left:4%!important;bottom:74px!important}
+  .about-canvas .airplane-window{width:100%;height:clamp(164px,25svh,244px);padding:12px}
+  .about-canvas .flight-card figcaption{gap:4px;margin-top:9px}.about-canvas .window-location{font-size:9px}.about-canvas #window-hint{font-size:8px;line-height:1.4}
+  .about-canvas .personal-laptop{width:clamp(125px,24vw,195px);right:4%!important;left:auto!important;bottom:150px!important}
+  .about-canvas .personal-matcha{width:90px!important;left:40%!important;bottom:135px!important}
+  .about-canvas .personal-hotpot{width:100px;left:58%!important;bottom:95px!important}
+  .about-canvas[data-arrangement=messy] .personal-hotpot{left:40%!important;bottom:135px!important}
+  .about-canvas[data-arrangement=messy] .personal-matcha{left:58%!important;bottom:95px!important}
+  .about-canvas .arrangement-controls{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);padding:0}
+}
+@media(max-width:600px){
+  .about-canvas:is([data-arrangement=tidy],[data-arrangement=messy]) .story-introduction{top:30%;width:calc(100% - 20px)}
+  .about-canvas .story-introduction h1{font-size:43px}.about-canvas .story-introduction>p,.about-canvas .story-introduction .about-role{font-size:12px;line-height:1.65}
+  .about-canvas .personal-photo{width:104px;left:0!important;top:4%!important}
+  .about-canvas .personal-calligraphy{width:35px}.about-canvas .personal-calligraphy img{height:53px!important}
+  .about-canvas .first-character{left:32%!important;top:4%!important}.about-canvas .second-character{left:42%!important;top:5%!important}
+  .about-canvas .story-outside{width:142px!important;right:0!important;top:2%!important}.about-canvas .record-player{width:105px}
+  .about-canvas .music-controls{gap:3px;margin-top:3px}.about-canvas .music-volume{flex-basis:100%;justify-content:center}.about-canvas .music-action{min-height:28px}.about-canvas .track-title{font-size:8px}
+  .about-canvas .software-folder{width:85px;left:6%!important;top:17%!important}.folder-caption{font-size:8px}.folder-app .app-icon{width:32px;height:32px;border-radius:8px}.folder-app>span:last-child{font-size:8px}.folder-app{left:-16px;top:12px}.software-folder[data-open=true] .app-procreate{transform:translate(-34px,-38px) rotate(-15deg) scale(1)}.software-folder[data-open=true] .app-figma{transform:translate(0,-55px) rotate(7deg) scale(1)}.software-folder[data-open=true] .app-adobe{transform:translate(34px,-38px) rotate(14deg) scale(1)}
+  .about-canvas .story-background{width:104px;left:0!important;bottom:68px!important}.about-canvas .airplane-window{height:146px;padding:9px}
+  .about-canvas .personal-laptop{width:127px;right:0!important;bottom:135px!important}
+  .about-canvas .personal-matcha{width:65px!important;left:38%!important;bottom:145px!important}.about-canvas .personal-hotpot{width:74px;left:50%!important;bottom:67px!important}
+  .about-canvas[data-arrangement=messy] .personal-hotpot{left:38%!important;bottom:145px!important}.about-canvas[data-arrangement=messy] .personal-matcha{left:50%!important;bottom:67px!important}
+  .about-canvas .arrangement-mode{width:36px;height:36px;padding:7px}
+}
+
+.about-canvas .about-roots{display:inline;margin:0}
+
+/* Apple Music-inspired playback: strong icons and a quiet volume rail. */
+.about-canvas .music-controls{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:22px;margin:5px 0 0}
+.about-canvas .music-action{display:grid;place-items:center;padding:3px;width:38px;height:38px;min-height:38px;border-radius:50%;background:transparent;color:var(--ink)}
+.about-canvas .music-action:hover{background:var(--story-surface)}.about-canvas .music-action svg{width:25px;height:25px;fill:currentColor;stroke:none}.about-canvas .music-play svg{width:30px;height:30px}.about-canvas .music-action .pause-symbol{display:none}.about-canvas .music-action[aria-pressed=true] .play-symbol{display:none}.about-canvas .music-action[aria-pressed=true] .pause-symbol{display:block}
+.about-canvas .music-volume{display:flex;align-items:center;justify-content:center;gap:9px;width:min(210px,85%);margin:5px auto 0;color:var(--story-text)}
+.about-canvas .music-volume svg{width:13px;height:13px;flex:none;fill:currentColor;stroke:none}.about-canvas .music-volume .speaker-waves{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round}
+.about-canvas .music-volume input{--volume-fill:50%;appearance:none;-webkit-appearance:none;min-width:0;flex:1;width:100%;height:4px;border-radius:8px;background:linear-gradient(to right,var(--story-text) var(--volume-fill),var(--line) var(--volume-fill));cursor:pointer;margin:0}
+.about-canvas .music-volume input::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:9px;height:9px;border:0;border-radius:50%;background:var(--story-text)}.about-canvas .music-volume input::-moz-range-thumb{width:9px;height:9px;border:0;border-radius:50%;background:var(--story-text)}
+@media(max-width:1020px){.about-canvas .music-controls{gap:12px;margin-top:3px}.about-canvas .music-action{width:32px;height:32px;min-height:32px}.about-canvas .music-action svg{width:21px;height:21px}.about-canvas .music-play svg{width:25px;height:25px}.about-canvas .music-volume{gap:6px;margin-top:3px;width:85%}}
+@media(max-width:600px){.about-canvas .music-controls{gap:10px}.about-canvas .music-action{width:29px;height:29px;min-height:29px}.about-canvas .music-action svg{width:18px;height:18px}.about-canvas .music-play svg{width:23px;height:23px}.about-canvas .music-volume svg{width:10px;height:10px}}
+@media(max-width:600px) and (max-height:700px){
+  .about-canvas:is([data-arrangement=tidy],[data-arrangement=messy]) .story-introduction{top:25.5%}
+  .about-canvas .airplane-window{height:clamp(100px,17.3svh,146px)}
+  .about-canvas .story-outside{width:134px!important;top:1%!important}
+  .about-canvas .record-player{width:78px}
+  .about-canvas .software-folder{width:75px;left:2%!important}
+}
+@media(max-width:600px) and (max-height:630px){
+  .about-canvas:is([data-arrangement=tidy],[data-arrangement=messy]) .story-introduction{top:25%}
+  .about-canvas .story-introduction h1{font-size:38px;margin-bottom:8px}
+  .about-canvas .story-introduction>p,.about-canvas .story-introduction .about-role{font-size:11.5px;line-height:1.55}
+  .about-canvas .story-introduction .about-role{margin-bottom:9px}
+}
+
+/* Move handles remain available to keyboard users without appearing on hover. */
+.about-canvas [data-about-object] .object-grip{opacity:0;pointer-events:none}
+.about-canvas [data-about-object] .object-grip:focus-visible{opacity:1;pointer-events:auto}
+.about-canvas .story-introduction .outside-story{margin-top:16px}
+.outside-clean{font-size:clamp(12px,1.75svh,14px);line-height:1.7;color:var(--story-text);margin-top:16px}
+.outside-clean p{margin:0 0 6px}
+.outside-clean ul{display:inline-block;text-align:left;margin:0;padding-left:17px}
+.outside-clean li{padding-left:3px;margin:2px 0}
+@media(max-width:1020px){.outside-clean{font-size:13px;line-height:1.65}}
+@media(max-width:600px){.outside-clean{font-size:12px;line-height:1.65}.about-canvas .story-introduction .outside-story,.outside-clean{margin-top:12px}}
+@media(max-width:600px) and (max-height:700px){
+ .about-canvas .story-introduction h1{font-size:38px;margin-bottom:10px}
+ .about-canvas .story-introduction>p,.outside-clean{font-size:11.5px;line-height:1.5}
+ .about-canvas .story-introduction .outside-story,.outside-clean{margin-top:10px}
+ .about-canvas .story-background{bottom:42px!important}
+ .about-canvas .personal-laptop{bottom:110px!important}
+ .about-canvas .personal-matcha{bottom:120px!important}
+ .about-canvas .personal-hotpot{bottom:52px!important}
+ .about-canvas[data-arrangement=messy] .personal-hotpot{bottom:120px!important}
+ .about-canvas[data-arrangement=messy] .personal-matcha{bottom:52px!important}
+}
+
+.about-canvas .about-summary{text-wrap:pretty}
+
+/* Give both laptop states a little more room, while keeping the canvas in view. */
+@media(min-width:1021px){
+ .about-canvas .personal-laptop{width:clamp(215px,35svh,280px)}
+ .about-canvas[data-arrangement=tidy] .personal-laptop{left:74%;top:8%}
+}
+@media(min-width:601px) and (max-width:1020px){.about-canvas .personal-laptop{width:clamp(140px,27vw,220px)}}
+@media(max-width:600px){.about-canvas .personal-laptop{width:140px}}
+@media(max-width:600px) and (max-height:700px){.about-canvas .personal-laptop{bottom:104px!important}}
+.folder-app .app-icon img{display:block;width:100%;height:100%;object-fit:contain}
+
+/* The transparent greeting travels with the portrait in either desk mode. */
+.about-canvas .personal-photo .personal-cursor{position:absolute;left:72%;top:73%;width:200px;margin:0;pointer-events:none;z-index:7;filter:drop-shadow(0 2px 2px #00000025)}
+.about-canvas .personal-cursor :is(img,canvas){display:block;width:100%;height:auto;box-shadow:none;border-radius:0}
+.about-canvas .personal-cursor .cursor-source{display:none}
+@media(min-width:601px) and (max-width:1020px){.about-canvas .personal-photo .personal-cursor{width:145px;left:65%;top:66%}}
+@media(max-width:600px){.about-canvas .personal-photo .personal-cursor{width:105px;left:58%;top:62%}}
+
+/* Keep the cursor itself solid while the keyed backdrop stays transparent. */
+.about-canvas .personal-cursor .cursor-fill{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.about-canvas .personal-cursor :is(.cursor-still,.cursor-animation){position:relative}
+
+/* A quiet, one-time hello, with room for the portrait and open laptop. */
+.about-canvas .personal-photo .personal-cursor{width:150px;transform:translate(var(--cursor-drift-x,0px),var(--cursor-drift-y,0px)) rotate(var(--cursor-drift-angle,0deg))}
+@media(min-width:1021px){
+ .about-canvas[data-arrangement=tidy] .personal-photo{width:clamp(205px,31svh,245px)}
+ .about-canvas[data-arrangement=tidy] .first-character{left:29%}
+ .about-canvas[data-arrangement=tidy] .second-character{left:37%}
+ .about-canvas[data-arrangement=messy] .personal-laptop{width:clamp(260px,41svh,325px)}
+}
+@media(min-width:601px) and (max-width:1020px){
+ .about-canvas .personal-photo .personal-cursor{width:115px}
+ .about-canvas[data-arrangement=tidy] .personal-photo{width:clamp(140px,26vw,210px)}
+ .about-canvas[data-arrangement=messy] .personal-laptop{width:clamp(165px,30vw,255px)}
+}
+@media(max-width:600px){
+ .about-canvas .personal-photo .personal-cursor{width:85px}
+ .about-canvas[data-arrangement=tidy] .personal-photo{width:118px}
+ .about-canvas[data-arrangement=tidy] .first-character{left:36%!important}
+ .about-canvas[data-arrangement=tidy] .second-character{left:46%!important}
+ .about-canvas[data-arrangement=messy] .personal-laptop{width:158px;bottom:94px!important}
+}
+@media(prefers-reduced-motion:reduce){.about-canvas .personal-photo .personal-cursor{transform:none}}

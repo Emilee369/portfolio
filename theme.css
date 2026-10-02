@@ -1,0 +1,45 @@
+/* Page surfaces change with the studio light; project photos and UI keep their colors. */
+html[data-theme=night]{--paper:#1b1c21;--ink:#eee9e4;--muted:#b0a8ae;--line:#444149;--accent:#e6a0bc;color-scheme:dark;background:var(--paper)}
+html[data-theme=night] body{background:var(--paper);color:var(--ink)}
+html[data-theme=night] .site-header,html[data-theme=night] .threadit-nav{background:#1b1c21f5}
+html[data-theme=night] .identity-mark img{filter:invert(1);mix-blend-mode:screen}
+html[data-theme=night] .hero-bottom>p,html[data-theme=night] .about-copy>p,html[data-theme=night] .project-tags,html[data-theme=night] .eyebrow{color:var(--muted)}
+html[data-theme=night] .about-art{background:#333139}
+html[data-theme=night] .project-cover{background:#33343a}
+html[data-theme=night] .work-section .project:is(:hover,:focus-within) .threadit-cover{background:#3c4843}
+html[data-theme=night] .work-section .project:is(:hover,:focus-within) .cover-two{background:#49423c}
+html[data-theme=night] .cover-label{color:#d4cbd0}
+html[data-theme=night] .case-artifact>div{background:#2b2c33;color:var(--muted);border-color:var(--line)}
+html[data-theme=night] .threadit-page{--case-muted:#b8b2b8;--stage:#2b2c33}
+html[data-theme=night] .threadit-hero-visual{background:radial-gradient(ellipse at 50% 50%,#39383f8c,transparent 70%)}
+html[data-theme=night] .comparison-switch{background:#34343d}
+html[data-theme=night] .comparison-switch button[aria-pressed=true]{background:#55515b}
+html[data-theme=night] .research-board-link,html[data-theme=night] .research-image-link{background:#303138}
+html[data-theme=night] body[data-page=gallery] .memory-room{background:var(--paper)}
+html[data-theme=night] .drawn-desk{filter:invert(1) hue-rotate(180deg) brightness(.9)}
+html[data-theme=night] .drawn-laptop video{filter:brightness(.8)}
+html[data-theme=night] .gallery-tools button,html[data-theme=night] .polaroid-community{color:#eee9e4}
+html[data-theme=night] .polaroid{background:#36343a;color:var(--ink)}
+html[data-theme=night] .polaroid-caption{color:var(--ink)}
+html[data-theme=night] .photo-dialog{background:var(--paper);color:var(--ink)}
+html[data-theme=night] .photo-dialog :is(h2,figcaption,button){color:var(--ink)}
+html[data-theme=night] .photo-dialog p{color:var(--muted)}
+html[data-theme=night] body[data-page=gallery] .polaroid{
+  background-color:var(--frame-night,#36343a);
+  border-color:#68626d66;
+  background-image:url("assets/gallery/paper-grain.svg"),var(--frame-design,linear-gradient(transparent,transparent)),linear-gradient(135deg,#ffffff0e,transparent 46%,#0000001a);
+  box-shadow:inset 0 1px 0 #ffffff15,inset 0 -1px 0 #00000026,2px 5px 12px #00000040;
+}
+html[data-theme=night] body[data-page=gallery] .polaroid:is(:hover,:focus-visible){box-shadow:inset 0 1px 0 #ffffff15,4px 9px 20px #00000055}
+html[data-theme=night] .photo-placeholder{background:#49454d;color:#e7dce4}
+html[data-theme=night] .photo-dialog input{background:#2c2b31;color:var(--ink);border-color:var(--line)}
+html[data-theme=night] .photo-dialog label,html[data-theme=night] .photo-local-note{color:var(--muted)}
+html[data-theme=night] .viewer-header{border-color:var(--line)}
+html[data-theme=night] .viewer-header nav a[aria-current=page]{border-color:var(--ink)}
+html[data-theme=night] .viewer-title span,html[data-theme=night] .viewer-title p,html[data-theme=night] .viewer-caption{color:var(--muted)}
+html[data-theme=night] .viewer-controls button{border-color:var(--line)}
+html[data-theme=night] .viewer-controls button:hover{background:#39383f}
+html[data-theme=night] #board-viewport{background:#303138}
+html[data-theme=night] .skip-link{background:var(--paper);color:var(--ink)}
+html[data-theme=night] :is(button,a,#board-viewport):focus-visible{outline-color:var(--accent)}
+@media print{html[data-theme=night]{--paper:#fff;--ink:#111;--muted:#555;--line:#ccc;color-scheme:light}html[data-theme=night] body{background:#fff;color:#111}}

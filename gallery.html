@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gallery — Emily Wu, UI/UX Designer.">
+  <title>Gallery · Between the Pieces</title>
+  <link rel="stylesheet" href="style.css?v=lift-pencil-17">
+<link rel="icon" href="assets/emily-wu-logo.jpg" type="image/jpeg"><link rel="stylesheet" href="footer.css?v=studio-window-8"><link rel="stylesheet" href="theme.css?v=paper-wall-5"><script src="theme.js"></script><link rel="stylesheet" href="nav-interactions.css?v=hamburger-9"></head>
+<body id="top" data-page="gallery">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="identity" href="./#top" aria-label="Emily Wu, home"><span class="identity-mark" aria-hidden="true"><img src="assets/emily-wu-logo.jpg" alt="" width="1150" height="1077"></span></a>
+    <nav aria-label="Main navigation"><a href="./#work">Work</a><a href="about.html">About</a><a href="gallery.html" aria-current="page">Gallery</a><a href="resume.html">Resume</a></nav>
+  </header>
+  <main id="main" class="subpage-main">
+    <section class="gallery-section" aria-labelledby="gallery-title">
+      <h1 id="gallery-title" class="sr-only">Community gallery</h1>
+      <div class="memory-room">
+        <div id="photo-wall" class="photo-wall" role="group" aria-label="Community photo gallery"></div>
+        <div class="drawn-workspace">
+          <svg class="drawn-desk" viewBox="0 0 2420 1668" aria-hidden="true">
+            <defs><clipPath id="desk-silhouette">
+              <path d="M 518 1398 L 2035 1427 L 2208 1668 L 288 1668 Z"/>
+              <path d="M 994 1144 Q 991 1137 1008 1144 L 1328 1143 Q 1341 1140 1341 1160 L 1348 1386 L 1377 1477 L 1404 1614 L 934 1614 L 967 1477 L 993 1381 Z"/>
+              <path d="M 751 1317 L 747 1323 L 791 1353 L 824 1400 L 811 1407 L 814 1517 L 805 1540 L 940 1540 L 930 1517 L 931 1402 L 912 1390 L 836 1390 L 798 1344 Z"/>
+              <path d="M 1478 1410 C 1462 1358 1466 1355 1500 1351 L 1568 1350 C 1596 1351 1594 1363 1588 1400 L 1573 1478 Q 1554 1490 1500 1480 Z"/>
+              <path d="M 1551 1379 L 1564 1261 L 1573 1255 L 1558 1382 Z M 1529 1376 L 1498 1270 L 1505 1267 L 1537 1376 Z M 1541 1377 L 1530 1329 L 1536 1328 L 1548 1377 Z"/>
+              <path d="M 1400 1269 Q 1436 1232 1477 1248 Q 1508 1242 1507 1276 Q 1456 1287 1400 1269 Z M 1538 1256 Q 1555 1220 1592 1203 Q 1581 1240 1569 1268 Z M 1568 1263 Q 1582 1214 1630 1222 Q 1653 1227 1665 1257 Q 1622 1242 1568 1263 Z M 1558 1308 Q 1528 1296 1521 1243 Q 1551 1240 1562 1283 Z M 1421 1353 Q 1432 1313 1470 1311 Q 1493 1317 1488 1340 Z M 1489 1348 Q 1498 1318 1528 1334 L 1540 1362 Z M 1532 1345 Q 1538 1320 1557 1328 L 1573 1344 L 1550 1368 Z"/>
+            </clipPath></defs>
+            <image href="assets/gallery/drawn-desk.png" width="2420" height="1668" clip-path="url(#desk-silhouette)"/>
+          </svg>
+          <button id="open-drawing" class="drawn-laptop" type="button" aria-label="Watch Emily’s drawing process in a larger view" aria-haspopup="dialog">
+            <video id="desk-video" muted loop playsinline preload="none" poster="assets/gallery/screen-poster.png" aria-hidden="true"><source src="assets/gallery/drawing-process.mp4" type="video/mp4"></video>
+          </button>
+        </div>
+      </div>
+      <p id="gallery-status" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer class="site-footer"><span>© <span id="year">2026</span> <span data-profile-name>Emily Wu</span></span><span class="footer-signature">MADE WITH INTENTION. AND A LITTLE PLAY.</span><a href="#top">Back to top ↑</a></footer>
+  <dialog id="photo-dialog" class="photo-dialog" aria-labelledby="photo-dialog-title">
+    <div class="photo-dialog-head"><span class="eyebrow">A MOMENT ON THE WALL</span><button id="close-photo" type="button" aria-label="Close photo">×</button></div>
+    <div id="photo-detail-image" class="photo-detail-image"></div>
+    <div id="photo-story"><h2 id="photo-dialog-title"></h2><p id="photo-community"></p><p id="photo-contribution"></p><p id="photo-context"></p></div>
+    <div id="photo-related" class="photo-related" hidden></div>
+  </dialog>
+  <dialog id="drawing-dialog" class="drawing-dialog" aria-label="Drawing process">
+    <div class="drawing-dialog-head"><button id="close-drawing" type="button" aria-label="Close drawing process">×</button></div>
+    <video id="drawing-video" muted loop playsinline preload="none" poster="assets/gallery/drawn-desk.png"><source src="assets/gallery/drawing-process.mp4" type="video/mp4"></video>
+    <button id="toggle-drawing" class="text-link" type="button">Pause drawing process</button>
+    <p id="drawing-status" class="sr-only" role="status"></p>
+  </dialog>
+  <script src="navigation.js"></script><script src="config.js?v=product-designer-13"></script><script src="app.js?v=full-pause-13"></script><script src="gallery-config.js?v=grouped-photos-2"></script><script src="gallery.js?v=paper-wall-5"></script><script src="gallery-workspace.js"></script>
+<script src="footer-girl.js?v=studio-window-8"></script>
+<script src="nav-interactions.js?v=hamburger-7"></script></body>
+</html>

@@ -1,0 +1,77 @@
+/* The studio is open space, divided from the page by a clear line. */
+.site-footer{position:relative;width:100%;margin-inline:0;flex-wrap:wrap;column-gap:24px;row-gap:16px;border-top:1px solid var(--ink);padding:0 max(48px,calc((100% - 1280px)/2)) 30px}
+.footer-habitat{position:relative;flex:0 0 100%;display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;min-height:300px;padding:28px 80px 16px 0;gap:24px}
+.footer-studio{position:relative;width:min(640px,100%);aspect-ratio:640/240;margin-inline:auto}
+.studio-room,.studio-blanket{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.studio-blanket{z-index:3;opacity:0;transition:opacity .5s}
+.studio-bed{opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s}
+.footer-studio[data-mode=night] .studio-blanket,.footer-studio[data-mode=night] .studio-bed{opacity:1;transform:none}
+.footer-girl{position:absolute;z-index:2;width:10%;aspect-ratio:32/44;padding:0;background:transparent;transition:left 1.2s ease,top 1.2s ease,transform .6s ease;transform-origin:center;cursor:pointer}
+.footer-girl:before{content:"";position:absolute;inset:-8px}
+.footer-girl svg{display:block;width:100%;height:100%;overflow:visible}
+.footer-girl:focus-visible{outline:1px dashed #aa7d94;outline-offset:8px;border-radius:4px}
+.footer-studio[data-mode=night] .footer-girl{transform:rotate(90deg)}
+.footer-studio[data-mode=day][data-activity=shy] .footer-girl{transform:translateY(2px)}
+.footer-contact{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding-top:20px}
+.footer-contact>span{font:9px "Courier New",monospace;letter-spacing:.14em;margin-bottom:6px;color:var(--muted)}
+.footer-contact a{font-size:13px;color:var(--ink);padding:4px 0;border-bottom:1px solid transparent}
+.footer-contact a[href]:hover{border-color:var(--ink)}
+.footer-contact a[aria-disabled]{cursor:default}
+.footer-signature{font:8px "Courier New",monospace;letter-spacing:.1em;color:var(--muted)}
+.studio-light{position:absolute;top:0;right:0;width:64px;height:176px;padding:0;touch-action:none;user-select:none;cursor:grab;color:var(--ink)}
+.studio-light.is-pulling{cursor:grabbing}
+.studio-light svg{display:block;width:100%;height:100%;overflow:visible}
+.light-cord{stroke:currentColor;stroke-width:1.3}
+.light-handle rect{stroke:currentColor;stroke-width:1.2;fill:var(--paper)}
+.light-handle path{stroke:currentColor;stroke-width:.7}
+.light-cord,.light-handle{transition:all .24s ease}
+.is-pulling .light-cord,.is-pulling .light-handle{transition:none}
+.studio-light:focus-visible{outline:0}
+.studio-light:focus-visible .light-handle rect{stroke:var(--accent);stroke-width:3}
+.girl-blink{opacity:0}
+.footer-habitat.is-active .girl-open-eyes{animation:studio-eyes 4.4s steps(1,end) infinite}
+.footer-habitat.is-active .girl-blink{animation:studio-blink 4.4s steps(1,end) infinite}
+.footer-habitat.is-active .girl-steam,.footer-habitat.is-active .girl-snooze,.footer-habitat.is-active .girl-music{animation:studio-float 2.5s ease-in-out infinite}
+.footer-habitat.is-active .girl-sip{animation:studio-sip 3.2s ease-in-out infinite}
+.footer-habitat.is-active .girl-pencil{transform-origin:28px 30px;animation:studio-pencil 1.2s steps(2,end) infinite}
+.footer-habitat.is-active .girl-idea,.footer-habitat.is-active .girl-heart{animation:studio-glimmer 1.2s steps(2,end) infinite}
+.footer-habitat.is-active .girl-drops{animation:studio-drop 1.2s steps(3,end) infinite}
+.footer-habitat.is-active .footer-girl.is-walking svg{animation:studio-step .25s steps(2,end) infinite}
+.footer-habitat.is-active .footer-studio[data-activity=dance] .footer-girl:not(.is-walking) svg{transform-origin:50% 100%;animation:studio-dance .8s steps(2,end) infinite}
+.footer-habitat.is-active .girl-dance-arms{transform-origin:16px 29px;animation:studio-arms .8s steps(2,end) infinite}
+html[data-theme=night] .studio-figma{opacity:.15}
+@keyframes studio-eyes{0%,91%,96%,100%{opacity:1}92%,95%{opacity:0}}
+@keyframes studio-blink{0%,91%,96%,100%{opacity:0}92%,95%{opacity:1}}
+@keyframes studio-sip{0%,15%,80%,100%{transform:translate(0,0)}35%,65%{transform:translate(-8px,-8px)}}
+@keyframes studio-float{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(-2px);opacity:1}}
+@keyframes studio-pencil{50%{transform:rotate(-10deg)}}
+@keyframes studio-glimmer{50%{opacity:.5}}
+@keyframes studio-drop{0%{transform:translateY(0);opacity:0}35%{opacity:1}100%{transform:translateY(3px);opacity:0}}
+@keyframes studio-step{50%{transform:translateY(-1px)}}
+@keyframes studio-dance{0%,100%{transform:translate(-3px,0) rotate(-7deg)}50%{transform:translate(3px,-3px) rotate(7deg)}}
+@keyframes studio-arms{50%{transform:rotate(-12deg) translateY(-2px)}}
+@media(max-width:900px){.site-footer{padding-inline:24px}.footer-habitat{grid-template-columns:110px minmax(0,1fr);gap:16px;padding-right:48px;min-height:270px}.studio-light{right:-12px}.footer-contact a{font-size:12px}}
+@media(max-width:600px){
+ .site-footer{padding-top:0;padding-inline:18px;gap:18px;padding-bottom:22px}
+ .footer-habitat{grid-template-columns:1fr;min-height:330px;gap:0;padding:32px 0 12px}
+ .footer-studio{grid-row:1;margin-top:52px;width:100%}
+ .footer-contact{grid-row:2;flex-direction:row;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:16px 0 0}
+ .footer-contact>span{flex:0 0 100%;margin:0;font-size:8px}
+ .footer-contact a{font-size:12px}
+ .studio-light{right:0;width:52px;height:143px}
+ .footer-signature{order:3;flex-basis:100%;text-align:center;font-size:7px}
+ .site-footer>span:first-of-type{order:1;width:auto;flex-basis:auto;font-size:inherit}
+ .site-footer>a{order:2;margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){.footer-girl,.studio-bed,.studio-blanket,.light-cord,.light-handle{transition:none}.footer-habitat *{animation:none!important}.girl-sip{transform:translate(-8px,-8px)}}
+@media print{.site-footer{display:none}}
+
+.studio-window-night{opacity:0;transition:opacity .65s ease}
+.studio-window-day{opacity:1;transition:opacity .65s ease}
+.footer-studio[data-mode=night] .studio-window-night{opacity:1}
+.footer-studio[data-mode=night] .studio-window-day{opacity:0}
+.footer-habitat.is-active .studio-cloud{animation:studio-cloud-drift 14s ease-in-out infinite alternate}
+.footer-habitat.is-active .studio-stars{animation:studio-stars-glow 5s ease-in-out infinite alternate}
+@keyframes studio-cloud-drift{to{transform:translateX(5px)}}
+@keyframes studio-stars-glow{to{opacity:.65}}
+@media(prefers-reduced-motion:reduce){.studio-window-day,.studio-window-night{transition:none}}
