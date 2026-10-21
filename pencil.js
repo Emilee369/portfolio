@@ -4,9 +4,15 @@
   if (!pencil) return;
   const page = window.PortfolioNavigation?.page;
   const listen = (target,type,handler,options={}) => target?.addEventListener(type,handler,{...options,signal:page?.signal});
+  const bulb = document.querySelector('.hero-lightbulb-button');
+  listen(bulb,'click',()=>{
+    const on=bulb.getAttribute('aria-pressed')!=='true';
+    bulb.setAttribute('aria-pressed',String(on));
+    bulb.setAttribute('aria-label',`Turn the lightbulb ${on?'off':'on'}`);
+  });
   const colors = [
-    {name:'Rose',hex:'#c8859b'}, {name:'Lavender',hex:'#a194cc'},
-    {name:'Sky',hex:'#88aec6'}, {name:'Mint',hex:'#89b49b'}, {name:'Peach',hex:'#d6a07d'}
+    {name:'Rose',hex:'#c8859b',hue:0}, {name:'Lavender',hex:'#a194cc',hue:-85},
+    {name:'Sky',hex:'#88aec6',hue:-145}, {name:'Mint',hex:'#89b49b',hue:-200}, {name:'Peach',hex:'#d6a07d',hue:40}
   ];
   const ns = 'http://www.w3.org/2000/svg';
   const ink = document.createElementNS(ns,'svg');
@@ -34,7 +40,7 @@
     breakStroke(); colorIndex=index;
     const color=colors[index];
     for(const button of [pencil,cursor]) {
-      button.querySelector('[data-pencil-body]').setAttribute('fill',color.hex);
+      button.querySelector('[data-pencil-body]').style.filter = `hue-rotate(${color.hue}deg)`;
       button.title = `${color.name} ink · Click to switch; hold to lift, release and move to draw; Esc to return`;
       button.setAttribute('aria-label',button.title);
     }

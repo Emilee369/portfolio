@@ -75,3 +75,7 @@ html[data-theme=night] .studio-figma{opacity:.15}
 @keyframes studio-cloud-drift{to{transform:translateX(5px)}}
 @keyframes studio-stars-glow{to{opacity:.65}}
 @media(prefers-reduced-motion:reduce){.studio-window-day,.studio-window-night{transition:none}}
+
+/* A barely blue studio surface, with the same quiet tint after lights out. */
+html:not([data-theme=night]) .site-footer{background:#f5f7fa;border-top-color:#d8dfe7}
+html[data-theme=night] .site-footer{background:#1a1d24;border-top-color:#3f4652}

@@ -340,3 +340,15 @@ body[data-page=gallery] .polaroid{
 .drawing-tools button:disabled{opacity:.4;cursor:default}
 .drawing-tools[hidden],.drawing-tools button[hidden]{display:none}
 @media(max-width:600px){.drawing-tools{bottom:16px;max-width:calc(100vw - 24px)}}
+
+/* The opening canvas fills the viewport; the work divider begins below the fold. */
+.site-header{border-bottom:0}
+body[data-page=home] .hero{min-height:calc(100svh - var(--header-height,74px) + 24px);padding-block:clamp(70px,12vh,140px)}
+.hero-pen{width:3.4em;height:1.1em}
+.hero-lightbulb{width:1.2em;height:1.55em;object-fit:contain;transform:rotate(8deg);margin-inline:6px}
+
+.hero-lightbulb-button{display:inline-flex;vertical-align:middle;align-items:center;justify-content:center;padding:2px;margin:0 2px;border:0;background:transparent;border-radius:12px;cursor:pointer}
+.hero-lightbulb-button .hero-lightbulb{margin:0;transition:filter .3s ease,opacity .3s ease}
+.hero-lightbulb-button[aria-pressed=false] .hero-lightbulb{filter:grayscale(1) brightness(.8);opacity:.7}
+html[data-theme=night] .hero-lightbulb-button[aria-pressed=true] .hero-lightbulb{filter:drop-shadow(0 0 6px #ffd786b3) drop-shadow(0 0 18px #ffce664d)}
+@media(prefers-reduced-motion:reduce){.hero-lightbulb-button .hero-lightbulb{transition:none}}
