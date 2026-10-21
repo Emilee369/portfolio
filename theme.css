@@ -1,3 +1,7 @@
+/* A white canvas across the light-mode pages and their sticky navigation. */
+:root{--paper:#fff}
+html:not([data-theme=night]),html:not([data-theme=night]) body{background:var(--paper)}
+html:not([data-theme=night]) :is(.site-header,.threadit-nav){background:rgba(255,255,255,.97)}
 /* Page surfaces change with the studio light; project photos and UI keep their colors. */
 html[data-theme=night]{--paper:#1b1c21;--ink:#eee9e4;--muted:#b0a8ae;--line:#444149;--accent:#e6a0bc;color-scheme:dark;background:var(--paper)}
 html[data-theme=night] body{background:var(--paper);color:var(--ink)}
